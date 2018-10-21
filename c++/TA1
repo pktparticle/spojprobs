@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+using namespace std;
+unsigned long long int digsum(unsigned long long int a)
+{
+	unsigned long long int r,s=0;
+	while(a!=0)
+	{
+	r=a%10;
+	s+=r;
+	a=a/10;
+	}
+
+	return s;
+}
+
+int main()
+{
+	
+	int t;
+	cin>>t;
+	string a;
+	unsigned long long int sum;
+	while(t--)
+	{
+		cin>>a;
+		sum=0;
+		for(unsigned long long int i=0;i<a.length();++i)
+		{
+			sum+=a[i]-48 ;
+			
+		}
+		
+		if(sum>9)
+		{
+		while(sum>9)
+			{
+				sum=digsum(sum);
+			}
+		}
+		cout<<sum<<endl;
+	}
+	return 0;
+}
